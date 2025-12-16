@@ -17,7 +17,7 @@ class WeatherApp(qw.QWidget):
 
     def initUI(self):
         self.setWindowTitle("Weather App")
-        self.setWindowIcon(QIcon("weather.png))
+        self.setWindowIcon(QIcon("weather.png"))
         vbox = qw.QVBoxLayout()
         vbox.addWidget(self.city_label)
         vbox.addWidget(self.city_input)
@@ -164,3 +164,4 @@ if __name__ == "__main__":
     w.show()
 
     sys.exit(app.exec_())
+
