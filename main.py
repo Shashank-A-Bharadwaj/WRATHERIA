@@ -7,16 +7,16 @@ from PyQt5.QtGui import QIcon
 class WeatherApp(qw.QWidget):
     def __init__(self):
         super().__init__()
-        self.city_label = qw.QLabel("Enter city name: ",self)
+        self.city_label = qw.QLabel("😶‍🌫️WEATHERIA",self)
         self.city_input = qw.QLineEdit(self)
-        self.get_weather_button = qw.QPushButton("Get Weather",self)
+        self.get_weather_button = qw.QPushButton("Get Weather 👉🏻",self)
         self.temp_label = qw.QLabel(self)
         self.emoji_label = qw.QLabel(self)
         self.description_label = qw.QLabel(self)
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("Weather App")
+        self.setWindowTitle("WEATHERIA")
         self.setWindowIcon(QIcon("weather.png"))
         vbox = qw.QVBoxLayout()
         vbox.addWidget(self.city_label)
@@ -41,12 +41,19 @@ class WeatherApp(qw.QWidget):
         self.description_label.setObjectName('description_label')
 
         self.setStyleSheet("""
+         QWidget {
+                background: qlineargradient(
+                    x1:0, y1:0, x2:1, y2:1,
+                    stop:0 #1e3c72,
+                    stop:1 #2a5298
+                );
+            }
             QLabel, QPushButton{
+                color: white;
                 font-family: calibri;
             }
             QLabel#city_label{
                 font-size: 40px;
-                font-style: italic;
                 font-weight: bold;
             }
             QLineEdit#city_input{
@@ -54,7 +61,14 @@ class WeatherApp(qw.QWidget):
             }
             QPushButton#get_weather_button{
                 font-size: 30px;
+                padding: 10px;
+                border-radius: 15px;
+                background-color: #ff9800;
+                color: black;
                 font-weight: bold;
+            }
+             QPushButton:hover {
+                background-color: #ffc107;
             }
             QLabel#temp_label{
                 font-size: 80px;
@@ -164,4 +178,5 @@ if __name__ == "__main__":
     w.show()
 
     sys.exit(app.exec_())
+
 
